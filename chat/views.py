@@ -18,6 +18,16 @@ class RoomList(generics.ListCreateAPIView):
     queryset = Room.objects.all()
     serializer_class = RoomSerializer
 
+class RoomMessages(generics.ListAPIView):
+    queryset = Room.objects.all()
+    serializer_class = RoomSerializer
+
+    def list(self, request, *args, **kwargs):
+        room = self.get_object()
+        queryset = room.messages.all()
+        serializer = MessageSerializer(queryset, many=True)
+        return Response(serializer.data)
+
 class MessageList(generics.ListCreateAPIView):
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
