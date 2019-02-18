@@ -1,3 +1,3 @@
-# Chat API Django
+# Simple Chat Django API
 
-Simple Chat API. Works with Django and Django REST Framework.
+Simple Chat API. Works on Django and Django REST Framework.
