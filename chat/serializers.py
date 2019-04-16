@@ -18,7 +18,7 @@ class RoomSerializer(serializers.ModelSerializer):
         fields = ('id', 'name')
 
 class MessageSerializer(serializers.ModelSerializer):
-    created = TimestampField()
+    created = serializers.IntegerField(source='created_utc_timestamp')
     class Meta:
         model = Message
         fields = ('id', 'text', 'author', 'created', 'room')

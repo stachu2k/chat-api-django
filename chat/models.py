@@ -9,7 +9,7 @@ class Room(models.Model):
 class Message(models.Model):
     text = models.TextField()
     author = models.CharField(max_length=100)
-    created = models.DateTimeField(auto_now_add=True)
+    created_utc_timestamp = models.BigIntegerField()
     room = models.ForeignKey('Room', related_name='messages', on_delete=models.CASCADE)
 
     class Meta:
